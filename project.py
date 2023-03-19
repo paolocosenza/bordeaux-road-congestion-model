@@ -61,6 +61,7 @@ def main():
             'Sunday, 3 PM' : [convert(model.predict(np.array(input_3)))]}
 
     df = pd.DataFrame(data)
+    
     # CSS to inject contained in a string
     hide_table_row_index = """
             <style>
