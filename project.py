@@ -14,10 +14,12 @@ def main():
   start_h3 = st.text_input("Start H3", key="start_h3")
 
   end_h3 = st.text_input("End H3", key="end_h3")
-
-  valhalla_time = st.text_input("Valhalla time", key="valhalla_time")
-
+  
   distance_in_meters = st.text_input("Distance in meters", key="distance_in_meters")
+  distance_in_meters = int(distance_in_meters)
+  
+  valhalla_time = st.text_input("Valhalla time", key="valhalla_time")
+  valhalla_time = int(valhalla_time)
 
   start_lat = h3.cell_to_latlng(start_h3)[0]
   start_lng = h3.cell_to_latlng(start_h3)[1]
