@@ -43,7 +43,7 @@ def main():
         distance_in_meters = int(dist_model.predict(np.array(input_)))
         st.write('Predicted distance in meters:', str(round(int(distance_in_meters)/1000)), 'km')
     else:
-        distance_in_meters = int(distance_in_meters)*1000
+        distance_in_meters = float(distance_in_meters)*1000
     
     input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
     st.write('Predicted time for Monday, 8 AM:', convert(model.predict(np.array(input_))))
