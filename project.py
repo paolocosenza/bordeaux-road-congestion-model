@@ -37,10 +37,13 @@ def main():
   end_lng = h3.cell_to_latlng(end_h3)[1]
   
   if st.button('Predict time'): 
+    st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
+    st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
     data_map = {'lat' : [start_lat, end_lat],
             'lon' : [start_lng, end_lng]}
     df_map = pd.DataFrame(data_map)
     st.map(df_map)
+
         
         
     if distance_in_meters == 'predict':
@@ -70,8 +73,6 @@ def main():
     # Inject CSS with Markdown
     st.markdown(hide_table_row_index, unsafe_allow_html=True)
                                    
-    st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
-    st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
     st.table(df)
 
 
