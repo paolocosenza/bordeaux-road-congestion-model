@@ -54,8 +54,10 @@ def main():
     input_3 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 3, valhalla_time]    
     st.write('Predicted time for Sunday, 3 PM:', convert(model.predict(np.array(input_3))))
     
-    df = pd.DataFrame([convert(model.predict(np.array(input_1))), convert(model.predict(np.array(input_2))), convert(model.predict(np.array(input_3)))],
-                      columns = ['Monday, 8 AM', 'Thursday, 11 PM', 'Sunday, 3 PM'])
+    df = pd.DataFrame()
+    df['Monday, 8 AM'] = convert(model.predict(np.array(input_1)))
+    df['Thursday, 11 PM'] = convert(model.predict(np.array(input_2)))
+    df['Sunday, 3 PM'] = convert(model.predict(np.array(input_3)))
     
     st.table(df)
 
