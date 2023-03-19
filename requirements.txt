@@ -3,3 +3,4 @@ numpy
 h3==4.0.0b2
 streamlit
 catboost
+plotly
