@@ -78,7 +78,7 @@ def main():
         st.table(df)
         
     except:
-        print("Incorrect data.")
+        st.write("Incorrect data.")
 
 if __name__ == "__main__":
     main()
