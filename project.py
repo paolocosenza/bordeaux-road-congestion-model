@@ -26,10 +26,10 @@ def main():
 
   end_h3 = st.text_input("End H3", key="end_h3")
   
-  distance_in_meters = st.text_input('Distance in km (type "predict" if unknown)', key="distance_in_meters")
+  distance_in_meters = st.text_input('Distance _in km_ (type "predict" if unknown)', key="distance_in_meters")
   
-  valhalla_time = st.text_input("Valhalla time", key="valhalla_time")
-  valhalla_time = int(valhalla_time)
+  valhalla_time = st.text_input("Valhalla time _in minutes_", key="valhalla_time")
+  valhalla_time = float(valhalla_time)*60
 
   start_lat = h3.cell_to_latlng(start_h3)[0]
   start_lng = h3.cell_to_latlng(start_h3)[1]
