@@ -51,11 +51,22 @@ def main():
             'Thursday, 11 PM' : [convert(model.predict(np.array(input_2)))],
             'Sunday, 3 PM' : [convert(model.predict(np.array(input_3)))]}
 
-    df = pd.DataFrame(data) 
+    df = pd.DataFrame(data)
+    # CSS to inject contained in a string
+    hide_table_row_index = """
+            <style>
+            thead tr th:first-child {display:none}
+            tbody th {display:none}
+            </style>
+            """
+
+    # Inject CSS with Markdown
+    st.markdown(hide_table_row_index, unsafe_allow_html=True)
                                    
-    st.table(df)
     st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
     st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
+    st.table(df)
+
 
 if __name__ == "__main__":
     main()
