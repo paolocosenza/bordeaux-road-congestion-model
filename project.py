@@ -10,13 +10,13 @@ model.load_model("model")
 dist_model = CatBoostClassifier()
 dist_model.load_model('dist_model')
 
-start_h3 = st.text_input("Type here", key="start_h3")
+start_h3 = st.text_input("Start H3", key="start_h3")
 
-end_h3 = st.text_input("Type here", key="end_h3")
+end_h3 = st.text_input("End H3", key="end_h3")
 
-valhalla_time = st.text_input("Type here", key="valhalla_time")
+valhalla_time = st.text_input("Valhalla time", key="valhalla_time")
 
-distance_in_meters = st.text_input("Type here", key="distance_in_meters")
+distance_in_meters = st.text_input("Distance in meters", key="distance_in_meters")
 
 start_lat = h3.cell_to_latlng(start_h3)[0]
 start_lng = h3.cell_to_latlng(start_h3)[1]
