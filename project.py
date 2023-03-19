@@ -22,7 +22,7 @@ def main():
   dist_model = CatBoostRegressor()
   dist_model.load_model('dist_model')
 
-  start_h3 = st.text_input("Start H3", key="start_h3")
+  start_h3 = st.text_input("Initial H3", key="start_h3")
 
   final_h3 = st.text_input("Final H3", key="final_h3")
   
