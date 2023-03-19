@@ -35,10 +35,7 @@ def main():
   end_lat = h3.cell_to_latlng(end_h3)[0]
   end_lng = h3.cell_to_latlng(end_h3)[1]
   
-  if st.button('Predict time'):
-    st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
-    st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
-    
+  if st.button('Predict time'): 
     if distance_in_meters == 'predict':
         input_ = [start_lat, start_lng, end_lat, end_lng, valhalla_time]
         distance_in_meters = int(dist_model.predict(np.array(input_)))
@@ -47,23 +44,18 @@ def main():
         distance_in_meters = float(distance_in_meters)*1000
     
     input_1 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
-#    st.write('Predicted time for Monday, 8 AM:', convert(model.predict(np.array(input_1))))
-
     input_2 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 2, valhalla_time]
-#    st.write('Predicted time for Thursday, 11 PM:', convert(model.predict(np.array(input_2))))
-
     input_3 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 3, valhalla_time]    
-#    st.write('Predicted time for Sunday, 3 PM:', convert(model.predict(np.array(input_3))))
     
     df = pd.DataFrame(columns = ['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM'])
     fig = go.Figure(data=[go.Table(header=dict(values=['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM']), 
                                    cells=dict(values=[[convert(model.predict(np.array(input_1)))], 
                                                        [convert(model.predict(np.array(input_2)))], 
                                                        [convert(model.predict(np.array(input_3)))]])
-                                  )
-                         ]
-                   )
+                   )])
     st.write(fig)
+    st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
+    st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
 
 if __name__ == "__main__":
     main()
