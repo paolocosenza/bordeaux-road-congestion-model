@@ -38,6 +38,11 @@ def main():
   if st.button('Predict time'):
     st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
     st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
+    
+    if distance_in_meters == 'predict':
+        input_ = [start_lat, start_lng, end_lat, end_lng, valhalla_time]
+        distance_in_meters = dist_model.predict(np.array(input_))
+        st.write('Predicted distance in meters:', distance_in_meters)
              
     input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
     st.write('Predicted time for Monday, 8 AM:', convert(model.predict(np.array(input_))))
