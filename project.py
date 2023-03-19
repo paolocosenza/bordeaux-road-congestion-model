@@ -57,10 +57,12 @@ def main():
     
     df = pd.DataFrame(columns = ['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM'])
     fig = go.Figure(data=[go.Table(header=dict(values=['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM']), 
-                                   cells=dict(values=[convert(model.predict(np.array(input_1)))], 
+                                   cells=dict(values=[[convert(model.predict(np.array(input_1)))], 
                                                        [convert(model.predict(np.array(input_2)))], 
-                                                       [convert(model.predict(np.array(input_3)))])
-                                  )])
+                                                       [convert(model.predict(np.array(input_3)))]])
+                                  )
+                         ]
+                   )
     st.write(fig)
 
 if __name__ == "__main__":
