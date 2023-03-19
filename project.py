@@ -37,6 +37,9 @@ def main():
   end_lng = h3.cell_to_latlng(end_h3)[1]
   
   if st.button('Predict time'): 
+    st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
+    st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
+    
     if distance_in_meters == 'predict':
         input_ = [start_lat, start_lng, end_lat, end_lng, valhalla_time]
         distance_in_meters = int(dist_model.predict(np.array(input_)))
@@ -44,8 +47,6 @@ def main():
     else:
         distance_in_meters = float(distance_in_meters)*1000
     
-    st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
-    st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
     data_map = {'lat' : [start_lat, end_lat],
             'lon' : [start_lng, end_lng]}
     df_map = pd.DataFrame(data_map)
