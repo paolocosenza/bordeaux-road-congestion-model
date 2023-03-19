@@ -45,14 +45,19 @@ def main():
     else:
         distance_in_meters = float(distance_in_meters)*1000
     
-    input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
-    st.write('Predicted time for Monday, 8 AM:', convert(model.predict(np.array(input_))))
+    input_1 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
+    st.write('Predicted time for Monday, 8 AM:', convert(model.predict(np.array(input_1))))
 
-    input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 2, valhalla_time]
-    st.write('Predicted time for Thursday, 11 PM:', convert(model.predict(np.array(input_))))
+    input_2 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 2, valhalla_time]
+    st.write('Predicted time for Thursday, 11 PM:', convert(model.predict(np.array(input_2))))
 
-    input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 3, valhalla_time]    
-    st.write('Predicted time for Sunday, 3 PM:', convert(model.predict(np.array(input_))))
+    input_3 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 3, valhalla_time]    
+    st.write('Predicted time for Sunday, 3 PM:', convert(model.predict(np.array(input_3))))
+    
+    df = pd.DataFrame([convert(model.predict(np.array(input_1))), convert(model.predict(np.array(input_2))), convert(model.predict(np.array(input_3)))],
+                      columns = ['Monday, 8 AM', 'Thursday, 11 PM', 'Sunday, 3 PM'])
+    
+    st.table(df)
 
 if __name__ == "__main__":
     main()
