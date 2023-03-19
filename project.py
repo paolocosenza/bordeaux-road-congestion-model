@@ -38,7 +38,7 @@ def main():
   
   if st.button('Predict time'): 
     data_map = {'lat' : [start_lat, end_lat],
-            'lng' : [start_lng, end_lng]}
+            'lon' : [start_lng, end_lng]}
     df_map = pd.DataFrame(data_map)
     st.map(df_map)
         
