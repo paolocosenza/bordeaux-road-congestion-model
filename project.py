@@ -53,7 +53,7 @@ def main():
                                                        [convert(model.predict(np.array(input_2)))], 
                                                        [convert(model.predict(np.array(input_3)))]])
                    )])
-    st.write(fig)
+    st.table(fig)
     st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
     st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
 
