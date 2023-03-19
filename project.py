@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import plotly.graph_objects as ho
 import h3
 import streamlit as st
 from catboost import CatBoostRegressor
@@ -55,10 +56,10 @@ def main():
     st.write('Predicted time for Sunday, 3 PM:', convert(model.predict(np.array(input_3))))
     
     df = pd.DataFrame(columns = ['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM'])
-#    df.iloc[0] = [convert(model.predict(np.array(input_1))), convert(model.predict(np.array(input_2))), 
-#                    convert(model.predict(np.array(input_3)))]
-    
-    st.table(df)
+    fig = go.Figure(data=[go.Table(header=dict(values=['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM']), 
+                                   cells=dict(values=[[convert(model.predict(np.array(input_1))), convert(model.predict(np.array(input_2)))
+                                                       convert(model.predict(np.array(input_3)))]]))])
+    st.write(fig)
 
 if __name__ == "__main__":
     main()
