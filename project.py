@@ -55,8 +55,8 @@ def main():
     st.write('Predicted time for Sunday, 3 PM:', convert(model.predict(np.array(input_3))))
     
     df = pd.DataFrame(columns = ['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM'])
-    df.iloc[0] = [convert(model.predict(np.array(input_1))), convert(model.predict(np.array(input_2))), 
-                    convert(model.predict(np.array(input_3)))]
+#    df.iloc[0] = [convert(model.predict(np.array(input_1))), convert(model.predict(np.array(input_2))), 
+#                    convert(model.predict(np.array(input_3)))]
     
     st.table(df)
 
