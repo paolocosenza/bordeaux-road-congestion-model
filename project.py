@@ -55,7 +55,7 @@ def main():
     st.write('Predicted time for Sunday, 3 PM:', convert(model.predict(np.array(input_3))))
     
     df = pd.DataFrame()
-    df['Monday, 8 AM'] = convert(model.predict(np.array(input_1)))
+    df['Monday, 8 AM'] = 'cazzo' #convert(model.predict(np.array(input_1)))
     df['Thursday, 11 PM'] = convert(model.predict(np.array(input_2)))
     df['Sunday, 3 PM'] = convert(model.predict(np.array(input_3)))
     df.columns = [['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM']]
