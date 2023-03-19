@@ -36,17 +36,17 @@ def main():
   end_lng = h3.cell_to_latlng(end_h3)[1]
   
   if st.button('Predict time'):
-    st.write('Initial coordinates:', h3.cell_to_latlng(start_h3))
-    st.write('Final coordinates:', h3.cell_to_latlng(end_h3))
+    st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
+    st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
              
     input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
-    st.write('Predicted time for Monday, 8 A.M.', convert(model.predict(np.array(input_))))
+    st.write('Predicted time for Monday, 8 AM:', convert(model.predict(np.array(input_))))
 
     input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 2, valhalla_time]
-    st.write('Predicted time for Thursday, 11 P.M.', convert(model.predict(np.array(input_))))
+    st.write('Predicted time for Thursday, 11 PM:', convert(model.predict(np.array(input_))))
 
     input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 3, valhalla_time]    
-    st.write('Predicted time for Sunday, 3 P.M.', convert(model.predict(np.array(input_))))
+    st.write('Predicted time for Sunday, 3 PM:', convert(model.predict(np.array(input_))))
 
 if __name__ == "__main__":
     main()
