@@ -29,14 +29,15 @@ def main():
   distance_in_meters = st.text_input('Distance in km _(type "predict" if unknown)_', key="distance_in_meters")
   
   valhalla_time = st.text_input("Valhalla time in minutes", key="valhalla_time")
-  valhalla_time = float(valhalla_time)*60
-
-  start_lat = h3.cell_to_latlng(start_h3)[0]
-  start_lng = h3.cell_to_latlng(start_h3)[1]
-  end_lat = h3.cell_to_latlng(final_h3)[0]
-  end_lng = h3.cell_to_latlng(final_h3)[1]
   
   if st.button('Predict time'): 
+    valhalla_time = float(valhalla_time)*60
+
+    start_lat = h3.cell_to_latlng(start_h3)[0]
+    start_lng = h3.cell_to_latlng(start_h3)[1]
+    end_lat = h3.cell_to_latlng(final_h3)[0]
+    end_lng = h3.cell_to_latlng(final_h3)[1]
+    
     st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
     st.write('Final coordinates:', str(h3.cell_to_latlng(final_h3)))
     
