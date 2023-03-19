@@ -25,7 +25,6 @@ def main():
   end_h3 = st.text_input("End H3", key="end_h3")
   
   distance_in_meters = st.text_input("Distance in meters", key="distance_in_meters")
-  distance_in_meters = int(distance_in_meters)
   
   valhalla_time = st.text_input("Valhalla time", key="valhalla_time")
   valhalla_time = int(valhalla_time)
@@ -43,7 +42,9 @@ def main():
         input_ = [start_lat, start_lng, end_lat, end_lng, valhalla_time]
         distance_in_meters = dist_model.predict(np.array(input_))
         st.write('Predicted distance in meters:', distance_in_meters)
-             
+
+    distance_in_meters = int(distance_in_meters)
+
     input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
     st.write('Predicted time for Monday, 8 AM:', convert(model.predict(np.array(input_))))
 
