@@ -24,7 +24,7 @@ def main():
 
   end_h3 = st.text_input("End H3", key="end_h3")
   
-  distance_in_meters = st.text_input('Distance in meters (write "predict" for prediction on distance', key="distance_in_meters")
+  distance_in_meters = st.text_input('Distance in meters (write "predict" if unknown)', key="distance_in_meters")
   
   valhalla_time = st.text_input("Valhalla time", key="valhalla_time")
   valhalla_time = int(valhalla_time)
