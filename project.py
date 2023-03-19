@@ -26,7 +26,10 @@ def main():
   end_lat = h3.cell_to_latlng(end_h3)[0]
   end_lng = h3.cell_to_latlng(end_h3)[1]
   
-  if st.button('Train model'):
+  if st.button('Predict time'):
+    st.write('Initial coordinates:', h3.cell_to_latlng(start_h3))
+    st.write('Final coordinates:', h3.cell_to_latlng(end_h3))
+             
     input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
     st.write('Predicted time for Monday, 8 A.M.', model.predict(np.array(input_)))
 
