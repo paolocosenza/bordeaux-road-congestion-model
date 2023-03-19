@@ -25,6 +25,8 @@ def main():
   end_lng = h3.cell_to_latlng(end_h3)[1]
   
   if st.button('Train model'):
+    
+    st.write(start_lat, start_lng, end_lat, end_lng, distance_in_meters, 0, valhalla_time)
 
     input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 0, valhalla_time]
     model.predict(np.array(input_))
