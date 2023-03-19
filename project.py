@@ -47,13 +47,11 @@ def main():
     input_2 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 2, valhalla_time]
     input_3 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 3, valhalla_time]    
     
-    df = pd.DataFrame(columns = ['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM'])
-    fig = go.Figure(data=[go.Table(header=dict(values=['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM']), 
-                                   cells=dict(values=[[convert(model.predict(np.array(input_1)))], 
-                                                       [convert(model.predict(np.array(input_2)))], 
-                                                       [convert(model.predict(np.array(input_3)))]])
-                   )])
-    st.table(fig)
+    values = [[convert(model.predict(np.array(input_1)))], [convert(model.predict(np.array(input_2)))], 
+             [convert(model.predict(np.array(input_3)))]]    
+    df = pd.DataFrame(values, columns = ['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM'])
+                                   
+    st.table(df)
     st.write('Initial coordinates:', str(h3.cell_to_latlng(start_h3)))
     st.write('Final coordinates:', str(h3.cell_to_latlng(end_h3)))
 
