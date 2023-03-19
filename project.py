@@ -46,13 +46,13 @@ def main():
     else:
         distance_in_meters = float(distance_in_meters)*1000
     
-#    input_1 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
+    input_1 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
 #    st.write('Predicted time for Monday, 8 AM:', convert(model.predict(np.array(input_1))))
 
-#    input_2 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 2, valhalla_time]
+    input_2 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 2, valhalla_time]
 #    st.write('Predicted time for Thursday, 11 PM:', convert(model.predict(np.array(input_2))))
 
-#    input_3 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 3, valhalla_time]    
+    input_3 = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 3, valhalla_time]    
 #    st.write('Predicted time for Sunday, 3 PM:', convert(model.predict(np.array(input_3))))
     
     df = pd.DataFrame(columns = ['Monday, 8 AM','Thursday, 11 PM','Sunday, 3 PM'])
