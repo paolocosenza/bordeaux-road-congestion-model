@@ -2,13 +2,13 @@ import pandas as pd
 import numpy as np
 import h3
 import streamlit as st
-from catboost import CatBoostClassifier
+from catboost import CatBoostRegressor
 
 def main():
-  model = CatBoostClassifier()
+  model = CatBoostRegressor()
   model.load_model("model")
 
-  dist_model = CatBoostClassifier()
+  dist_model = CatBoostRegressor()
   dist_model.load_model('dist_model')
 
   start_h3 = st.text_input("Start H3", key="start_h3")
@@ -27,20 +27,14 @@ def main():
   end_lng = h3.cell_to_latlng(end_h3)[1]
   
   if st.button('Train model'):
-    
-    st.write(start_lat, start_lng, end_lat, end_lng, distance_in_meters, 0, valhalla_time)
-
-    input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 0, valhalla_time]
-    model.predict(np.array(input_))
-    st.write('Predicted time for Monday, 8 A.M.')
-
     input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 1, valhalla_time]
-    model.predict(np.array(input_))
-    st.write('Predicted time for Thursday, 11 P.M.')
+    st.write('Predicted time for Monday, 8 A.M.', model.predict(np.array(input_)))
 
     input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 2, valhalla_time]
-    model.predict(np.array(input_))
-    st.write('Predicted time for Sunday, 3 P.M.')
+    st.write('Predicted time for Thursday, 11 P.M.', model.predict(np.array(input_)))
+
+    input_ = [start_lat, start_lng, end_lat, end_lng, distance_in_meters, 3, valhalla_time]    
+    st.write('Predicted time for Sunday, 3 P.M.', model.predict(np.array(input_)))
 
 if __name__ == "__main__":
     main()
