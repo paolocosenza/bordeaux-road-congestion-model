@@ -42,7 +42,7 @@ def main():
         if distance_in_meters.lower() == 'predict':
             input_ = [start_lat, start_lng, end_lat, end_lng, valhalla_time]
             distance_in_meters = int(dist_model.predict(np.array(input_)))
-            st.write('Predicted distance in meters:', str(round(float(distance_in_meters)/1000)), 'km')
+            st.write('Predicted distance:', str(round(float(distance_in_meters)/1000)), 'km')
         else:
             distance_in_meters = float(distance_in_meters)*1000
 
