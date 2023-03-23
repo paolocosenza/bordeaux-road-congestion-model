@@ -3,6 +3,7 @@ import numpy as np
 import plotly.graph_objects as go
 import h3
 import streamlit as st
+from PIL import Image
 from catboost import CatBoostRegressor
 
 def convert(seconds):
@@ -14,8 +15,11 @@ def convert(seconds):
      
     return "%d:%02d:%02d" % (hour, minutes, seconds)
 
-def main():
+def main()
+  image = Image.open('logo.png')
+  st.image(image)
   st.title("Road congestion model")
+
   model = CatBoostRegressor()
   model.load_model("model")
 
