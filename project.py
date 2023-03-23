@@ -15,7 +15,7 @@ def convert(seconds):
      
     return "%d:%02d:%02d" % (hour, minutes, seconds)
 
-def main()
+def main():
   image = Image.open('logo.png')
   st.image(image)
   st.title("Road congestion model")
