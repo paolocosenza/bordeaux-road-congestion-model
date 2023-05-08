@@ -26,9 +26,9 @@ def main():
   dist_model = CatBoostRegressor()
   dist_model.load_model('dist_model')
 
-  start_h3 = st.text_input("Initial H3 _(ex. 89184d9a22fffff)_", key="start_h3")
+  start_h3 = st.text_input('Initial H3 _(ex. 89184d9a22fffff)_', key="start_h3")
 
-  final_h3 = st.text_input("Final H3", key="final_h3 _(ex. 89184d8a2afffff)_")
+  final_h3 = st.text_input('Final H3 _(ex. 89184d8a2afffff)_', key="final_h3")
   
   distance_in_meters = st.text_input('Distance in km _(type "predict" if unknown)_', key="distance_in_meters")
   
