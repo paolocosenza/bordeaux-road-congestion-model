@@ -7,4 +7,4 @@ Implementation of a road congestion machine learning model for the city of Borde
 
 <br />
 
-![example](images/example.png)
+![example](example.png)
